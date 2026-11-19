@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-ivory font-sans font-normal text-ink antialiased; }
+  h1, h2, h3, h4 { @apply font-display font-medium tracking-tight; }
+  :focus-visible { outline: 2px solid #C9A45C; outline-offset: 3px; }
+  ::selection { background: #E5D2A3; color: #310A12; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10; }
+  .section { @apply py-20 md:py-28; }
+
+  .btn { @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[13px] font-medium uppercase tracking-[0.16em] transition-all duration-300 border; }
+  .btn-gold { @apply btn border-gold-500 bg-gold-500 text-maroon-900 hover:bg-gold-400 hover:border-gold-400; }
+  .btn-maroon { @apply btn border-maroon-800 bg-maroon-800 text-ivory hover:bg-maroon-700 hover:border-maroon-700; }
+  .btn-outline { @apply btn border-gold-500 text-maroon-800 hover:bg-maroon-800 hover:text-ivory hover:border-maroon-800; }
+  .btn-outline-light { @apply btn border-gold-400 text-ivory hover:bg-gold-500 hover:text-maroon-900; }
+
+  /* Arched frame — the recurring motif (jharokha / temple arch) */
+  .arch { border-top-left-radius: 999px; border-top-right-radius: 999px; }
+
+  /* Skeleton shimmer while images load */
+  .skeleton { background: linear-gradient(100deg, #EFE5D0 30%, #F8F1E2 50%, #EFE5D0 70%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
+  @keyframes shimmer { to { background-position: -200% 0; } }
+
+  .field { @apply w-full border border-beige bg-white px-4 py-3 text-[15px] text-ink placeholder:text-ink/40 focus:border-gold-500 focus:outline-none; }
+}
+
+@layer components {
+  .eyebrow { @apply text-[12px] font-medium uppercase tracking-[0.32em] text-gold-600; }
+  .brand-name { @apply font-brand font-semibold uppercase tracking-[0.14em]; }
+}
